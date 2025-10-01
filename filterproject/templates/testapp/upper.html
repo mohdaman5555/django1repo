@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load ownfilters %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       li{
+        margin-left: 100px;
+        font-size: 20px;
+        list-style: none;
+       }
+       h1{
+        margin-left: 100px;
+       }
+       body{
+        background-color: rgb(32, 148, 215);
+       }
+    </style>
+</head>
+<body>
+    {% for i in records %}
+    <h1>{{i.name}} Information</h1>
+    <ul>
+        <li>Name :{{i.name | first5 }}</li>
+        <li>Name :{{i.name | title }}</li>
+        <li>Subject :{{i.subject | upper }}</li>
+        <li>Department :{{i.dept | lower }}</li>
+        <li>Date :{{i.date | date:'d-m-Y' }}</li>
+        <li>Date :{{i.date | date:'m/d/Y' }}</li>
+        <li>Date :{{i.date | date:'d-m-Y' }}</li>
+        <li>Date :{{i.date | timesince }}</li>
+        <hr>  
+    </ul>
+    {% endfor %}
+</body>
+</html>
